@@ -105,7 +105,6 @@ alias school='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ stud
 alias ..='cd ..'
 alias ....='cd ..;cd ..'
 alias ......='cd ..;cd ..;cd ..'
-alias lsl='ls -l'
 alias tb='taskbook'
 alias aquarium='ssh guyseg%river@gw.cs.huji.ac.il'
 alias nvim_swap='cd; cd .local/share/nvim/swap/'
@@ -117,6 +116,7 @@ alias pdf='f(){qpdfview "$@" &> /dev/null &}; f' # Open a pdf file
 alias code='f(){/home/guy/utils/apps/VSCode-linux-x64/bin/code "$@"}; f'
 alias vim='/usr/bin/nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Loewenstein\ Lab/'
 
 
 
