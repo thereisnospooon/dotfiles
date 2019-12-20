@@ -16,6 +16,11 @@ Plugin 'lervag/vimtex'
 Plugin 'itchyny/lightline.vim'
 " UltiSnips
 Plugin 'SirVer/ultisnips'
+" Vimux
+Plugin 'benmills/vimux'
+" PyShell
+" Vim IPython cell mode
+" Plugin 'julienr/vim-cellmode'
 " Fuzzy file search
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
@@ -191,7 +196,24 @@ let g:UltiSnipsExpandTrigger = "<c-s>"
 let g:UltiSnipsJumpForwardTrigger = "<c-l>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
 
+" Vim IPython Cell binding
+noremap ,ss :call StartPyShell()<CR>
+noremap ,sk :call StopPyShell()<CR>
+let g:cellmode_use_tmux=1
+let g:cellmode_tmux_panenumber=1
+" code execution
+nnoremap ,l  :call PyShellSendLine()<CR>
+" Run the block of the cursor
+noremap <silent> <C-n> :call RunTmuxPythonCell(0)<CR> 
 """ My mappings
 " Ctrl-p to grep files in directory
 map <silent> <C-p> :Rgp <CR>  
 
+" Send text to terminal
+ function! VimuxSlime()
+  call VimuxSendText(@v)
+  call VimuxSendKeys("Enter")
+ endfunction
+
+ " If text is selected, save it in the v buffer and send that buffer it to tmux
+ vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
