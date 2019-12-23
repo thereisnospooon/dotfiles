@@ -88,7 +88,7 @@ let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsp'
 let g:coc_snippet_next="<C-l>"
 let g:coc_snippet_prev="<C-h>"
-imap <C-l> <Plug>(coc-snippets-expand)
+imap <C-s> <Plug>(coc-snippets-expand)
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -145,7 +145,7 @@ let g:airline_powerline_fonts = 1
 
 
 "" NERDTree setting
-map <C-v> :NERDTreeToggle<CR>
+map <silent> <C-v> :NERDTreeToggle<CR>
 
 " Fixes esc lag using Nerdtree
 set ttimeout ttimeoutlen=30
@@ -196,20 +196,11 @@ let g:UltiSnipsExpandTrigger = "<c-s>"
 let g:UltiSnipsJumpForwardTrigger = "<c-l>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
 
-" Vim IPython Cell binding
-noremap ,ss :call StartPyShell()<CR>
-noremap ,sk :call StopPyShell()<CR>
-let g:cellmode_use_tmux=1
-let g:cellmode_tmux_panenumber=1
-" code execution
-nnoremap ,l  :call PyShellSendLine()<CR>
-" Run the block of the cursor
-noremap <silent> <C-n> :call RunTmuxPythonCell(0)<CR> 
 """ My mappings
 " Ctrl-p to grep files in directory
 map <silent> <C-p> :Rgp <CR>  
 
-" Send text to terminal
+" Send highlighted text to terminal
  function! VimuxSlime()
   call VimuxSendText(@v)
   call VimuxSendKeys("Enter")
@@ -217,3 +208,12 @@ map <silent> <C-p> :Rgp <CR>
 
  " If text is selected, save it in the v buffer and send that buffer it to tmux
  vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
+
+" Switch to last-active tab
+if !exists('g:Lasttab')
+    let g:Lasttab = 1
+    let g:Lasttab_backup = 1
+endif
+autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+nmap <silent> tt :exe "tabn " . g:Lasttab<cr>
