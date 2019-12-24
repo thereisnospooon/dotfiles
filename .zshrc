@@ -70,7 +70,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,23 +101,14 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Aliases
-alias school='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Semester_A'
 alias ..='cd ..'
 alias ....='cd ..;cd ..'
 alias ......='cd ..;cd ..;cd ..'
-alias tb='taskbook'
-alias aquarium='ssh guyseg%river@gw.cs.huji.ac.il'
-alias nvim_swap='cd; cd .local/share/nvim/swap/'
-alias ec2_talenya='ssh -i doron.pem ubuntu@ec2-63-35-62-147.eu-west-1.compute.amazonaws.com'
-alias samba='/opt/cisco/anyconnect/bin/vpnui'
 alias usefull_cmds='cat ~/Desktop/useful_commands'
 alias jlab='jupyter lab &> /dev/null &'
 alias pdf='f(){qpdfview "$@" &> /dev/null &}; f' # Open a pdf file
 alias code='f(){/home/guy/utils/apps/VSCode-linux-x64/bin/code "$@"}; f'
-alias vim='/usr/bin/nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Loewenstein\ Lab/'
-
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
