@@ -199,6 +199,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
 """ My mappings
 " Ctrl-p to grep files in directory
 map <silent> <C-p> :Rgp <CR>  
+" Ctrl-l to grep for files
+map <silent> <C-l> :FZF <CR>  
 
 " Send highlighted text to terminal
  function! VimuxSlime()

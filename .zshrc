@@ -113,7 +113,6 @@ alias samba='/opt/cisco/anyconnect/bin/vpnui'
 alias usefull_cmds='cat ~/Desktop/useful_commands'
 alias jlab='jupyter lab &> /dev/null &'
 alias pdf='f(){qpdfview "$@" &> /dev/null &}; f' # Open a pdf file
-alias code='f(){/home/guy/utils/apps/VSCode-linux-x64/bin/code "$@"}; f'
 alias vim='/usr/bin/nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Loewenstein\ Lab/'
@@ -121,7 +120,6 @@ alias j='jobs'
 alias k='f(){kill %"$@"}; f'
 alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (input)
 alias battery='~/.dotfiles/bin/battery'
-
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
