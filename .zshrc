@@ -45,7 +45,8 @@ alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies
 alias books='cd; cd Documents/Books/'
 alias j='jobs'
 #alias k='f(){kill %"$@"}; f'
-alias l='ls -la'
+alias l='ls -l'
+alias ll='ls -la'
 alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (input)
 alias battery='~/.dotfiles/bin/battery'
 
