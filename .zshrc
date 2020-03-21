@@ -10,6 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="avit"
+#ZSH_THEME="blinks"
 #ZSH_THEME="agnoster" # Currently using a custom one.
 
 # Set list of themes to pick from when loading at random
@@ -101,7 +102,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Aliases
-alias school='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Semester_A'
+alias school='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Semester_B'
 alias ..='cd ..'
 alias ....='cd ..;cd ..'
 alias ......='cd ..;cd ..;cd ..'
@@ -112,12 +113,13 @@ alias ec2_talenya='ssh -i doron.pem ubuntu@ec2-63-35-62-147.eu-west-1.compute.am
 alias samba='/opt/cisco/anyconnect/bin/vpnui'
 alias usefull_cmds='cat ~/Desktop/useful_commands'
 alias jlab='jupyter lab &> /dev/null &'
-alias pdf='f(){qpdfview "$@" &> /dev/null &}; f' # Open a pdf file
+alias pdf='f(){okular "$@" &> /dev/null &}; f' # Open a pdf file
 alias vim='/usr/bin/nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Loewenstein\ Lab/'
+alias books='cd; cd Documents/Books/'
 alias j='jobs'
-alias k='f(){kill %"$@"}; f'
+#alias k='f(){kill %"$@"}; f'
 alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (input)
 alias battery='~/.dotfiles/bin/battery'
 
