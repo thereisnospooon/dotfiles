@@ -33,9 +33,10 @@ alias ....='cd ..;cd ..'
 alias ......='cd ..;cd ..;cd ..'
 alias tb='taskbook'
 alias aquarium='ssh guyseg%river@gw.cs.huji.ac.il'
+alias elsc_cluster='ssh guy.segal@bs-cluster.elsc.huji.ac.il'
 alias nvim_swap='cd; cd .local/share/nvim/swap/'
 alias ec2_talenya='ssh -i doron.pem ubuntu@ec2-63-35-62-147.eu-west-1.compute.amazonaws.com'
-alias samba='/opt/cisco/anyconnect/bin/vpnui'
+alias samba='/opt/cisco/anyconnect/bin/vpnui &> /dev/null &'
 alias usefull_cmds='cat ~/Desktop/useful_commands'
 alias jlab='jupyter lab &> /dev/null &'
 alias pdf='f(){okular "$@" &> /dev/null &}; f' # Open a pdf file
@@ -49,6 +50,8 @@ alias l='ls -l'
 alias ll='ls -la'
 alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (input)
 alias battery='~/.dotfiles/bin/battery'
+alias calc='ipython3 -ic "from math import *; import numpy as np; import matplotlib.pyplot as plt"' 
+alias lock='gnome-screensaver-command -l'
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
