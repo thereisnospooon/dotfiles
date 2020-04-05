@@ -18,9 +18,6 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'SirVer/ultisnips'
 " Vimux
 Plugin 'benmills/vimux'
-" PyShell
-" Vim IPython cell mode
-" Plugin 'julienr/vim-cellmode'
 " Fuzzy file search
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
@@ -32,7 +29,6 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'scrooloose/nerdcommenter'
 " Git plugin
 Plugin 'tpope/vim-fugitive'
-Plugin 'Cocophotos/vim-ycm-latex-semantic-completer'
 Plugin 'ryanoasis/vim-devicons'
 filetype plugin indent on
 """ End if vundle setup
@@ -64,6 +60,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ ]
+let g:coc_node_path='/usr/bin/node'
 " from readme
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -195,7 +192,6 @@ let g:UltiSnipsSnippetDirectories = ['/home/guy/.vim/bundle/vim-snippets/UltiSni
 let g:UltiSnipsExpandTrigger = "<c-s>"
 let g:UltiSnipsJumpForwardTrigger = "<c-l>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
-
 """ My mappings
 " Ctrl-p to grep files in directory
 map <silent> <C-p> :Rgp <CR>  
@@ -219,3 +215,9 @@ endif
 autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
 autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
 nmap <silent> tt :exe "tabn " . g:Lasttab<cr>
+
+" YCM config
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme 

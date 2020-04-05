@@ -52,9 +52,16 @@ alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (in
 alias battery='~/.dotfiles/bin/battery'
 alias calc='ipython3 -ic "from math import *; import numpy as np; import matplotlib.pyplot as plt"' 
 alias lock='gnome-screensaver-command -l'
+alias rofi='$HOME/.config/rofi/rofi'
+alias latex_clear='latexmk -c'
+alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center &> /dev/null &'
+alias list_sizes_in_dir="sudo du -a -h --max-depth=1 | sort -h"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="/home/guy/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
