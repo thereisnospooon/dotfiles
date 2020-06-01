@@ -6,30 +6,37 @@ runtime! debian.vim
 
 """ Vundle setup
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"call vundle#rc()
+call plug#begin('~/.vim/plugged/')
 " let Vundle manage Vundle
 " required! 
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree' 
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'lervag/vimtex'
-Plugin 'itchyny/lightline.vim'
+Plug 'gmarik/vundle'
+Plug 'scrooloose/nerdtree' 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'lervag/vimtex'
+Plug 'tweekmonster/django-plus.vim'
+Plug 'itchyny/lightline.vim'
 " UltiSnips
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Vimux
-Plugin 'benmills/vimux'
+Plug 'benmills/vimux'
 " Fuzzy file search
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Gruvbox Theme
+Plug 'morhetz/gruvbox'
+"Vim Snippets
+Plug 'honza/vim-snippets'
 " Intellisense completion
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Auto comment lines
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " Git plugin
-Plugin 'tpope/vim-fugitive'
-Plugin 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-fugitive'
+Plug 'ryanoasis/vim-devicons'
+" Zen mode plugin
+Plug 'junegunn/goyo.vim'
+call plug#end()
 filetype plugin indent on
 """ End if vundle setup
 
@@ -92,10 +99,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -112,9 +115,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-"Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
 
 "End of CoC setting
 
@@ -156,6 +156,11 @@ set noshowmode
 " Disable highlighting in search
 set nohlsearch
 
+" Goyo settings
+let g:goyo_height = '100%'
+let g:goyo_width = '160'
+let g:goyo_linenr = 1
+
 
 " Lightline functionality
 let g:lightline = {
@@ -196,16 +201,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-h>"
 " Ctrl-p to grep files in directory
 map <silent> <C-p> :Rgp <CR>  
 " Ctrl-l to grep for files
-map <silent> <C-l> :FZF <CR>  
-
-" Send highlighted text to terminal
- function! VimuxSlime()
-  call VimuxSendText(@v)
-  call VimuxSendKeys("Enter")
- endfunction
-
- " If text is selected, save it in the v buffer and send that buffer it to tmux
- vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
+map <silent> <C-l> :GFiles <CR>  
 
 " Switch to last-active tab
 if !exists('g:Lasttab')
@@ -217,7 +213,10 @@ autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
 nmap <silent> tt :exe "tabn " . g:Lasttab<cr>
 
 " YCM config
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme 
+"if !exists('g:ycm_semantic_triggers')
+    "let g:ycm_semantic_triggers = {}
+"endif
+"let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme 
+
+"Don't wrap lines!
+set nowrap

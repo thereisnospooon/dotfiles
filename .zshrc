@@ -26,37 +26,9 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
     bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
-# Aliases
-alias school='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Semester_B'
-alias ..='cd ..'
-alias ....='cd ..;cd ..'
-alias ......='cd ..;cd ..;cd ..'
-alias tb='taskbook'
-alias aquarium='ssh guyseg%river@gw.cs.huji.ac.il'
-alias elsc_cluster='ssh guy.segal@bs-cluster.elsc.huji.ac.il'
-alias nvim_swap='cd; cd .local/share/nvim/swap/'
-alias ec2_talenya='ssh -i doron.pem ubuntu@ec2-63-35-62-147.eu-west-1.compute.amazonaws.com'
-alias samba='/opt/cisco/anyconnect/bin/vpnui &> /dev/null &'
-alias usefull_cmds='cat ~/Desktop/useful_commands'
-alias jlab='jupyter lab &> /dev/null &'
-alias pdf='f(){okular "$@" &> /dev/null &}; f' # Open a pdf file
-alias vim='/usr/bin/nvim'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Loewenstein\ Lab/'
-alias books='cd; cd Documents/Books/'
-alias j='jobs'
-#alias k='f(){kill %"$@"}; f'
-alias l='ls -l'
-alias ll='ls -la'
-alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (input)
-alias battery='~/.dotfiles/bin/battery'
-alias calc='ipython3 -ic "from math import *; import numpy as np; import matplotlib.pyplot as plt"' 
-alias lock='gnome-screensaver-command -l'
-alias rofi='$HOME/.config/rofi/rofi'
-alias latex_clear='latexmk -c'
-alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center &> /dev/null &'
-alias list_sizes_in_dir="sudo du -a -h --max-depth=1 | sort -h"
+source ~/.alias
 
+autoload -U compinit && compinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -65,3 +37,21 @@ alias list_sizes_in_dir="sudo du -a -h --max-depth=1 | sort -h"
 
 export NVM_DIR="/home/guy/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/guy/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/guy/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/guy/.anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/guy/.anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+# >>> My conda initialize
+conda activate py38
+# <<< My conda initialize

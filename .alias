@@ -1,0 +1,55 @@
+# Aliases
+alias school='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Semester_B'
+alias ..='cd ..'
+alias ....='cd ..;cd ..'
+alias ......='cd ..;cd ..;cd ..'
+alias tb='taskbook'
+alias aquarium='ssh guyseg%river@gw.cs.huji.ac.il'
+alias elsc_cluster='ssh guy.segal@bs-cluster.elsc.huji.ac.il'
+alias nvim_swap='cd; cd .local/share/nvim/swap/'
+alias ec2_talenya='ssh -i doron.pem ubuntu@ec2-63-35-62-147.eu-west-1.compute.amazonaws.com'
+alias samba='/opt/cisco/anyconnect/bin/vpnui &> /dev/null &'
+alias usefull_cmds='cat ~/Desktop/useful_commands'
+alias jlab='jupyter-lab &> /dev/null &'
+alias pdf='f(){okular "$@" &> /dev/null &}; f' # Open a pdf file
+alias vim='/usr/local/bin/nvim'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias lab='cd; cd segal.guy@gmail.com/Computer\ Science\ and\ Cognitive\ studies\ Hebrew\ University/Third\ Year/Loewenstein\ Lab/'
+alias books='cd; cd Documents/Books/'
+alias j='jobs'
+alias l='ls -l'
+alias ll='ls -la'
+alias files='f(){nautilus "$@" &> /dev/null &}; f' #  open files GUI at "$@" (input)
+alias battery='~/.dotfiles/bin/battery'
+alias calc='ipython -ic "from math import *; import numpy as np; import matplotlib.pyplot as plt; import pandas as pd"' 
+alias lock='gnome-screensaver-command -l'
+alias rofi='$HOME/.config/rofi/rofi'
+alias latex_clear='$HOME/utils/latex_clear'
+alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center &> /dev/null &'
+alias list_sizes_in_dir="sudo du -a -h --max-depth=1 | sort -h"
+alias move_workspace_right='i3-msg move workspace to output right'
+alias move_workspace_left='i3-msg move workspace to output left'
+alias zathura='f(){zathura "$@" &> /dev/null &};f'
+alias docs='cd; cd segal.guy@gmail.com/Documents/'
+alias gst='git status'
+alias glg='git lg'
+alias gu='git add -u'
+alias gcm='f(){git commit -m "$@"}; f'
+alias ga='f(){git add }; f'
+alias md='mkdir'
+alias p='shopts="$SHELLOPTS"; set -f; _pyval'
+
+
+# Helpers
+
+_pyval() {
+    local python_cmd="print ($@)"
+    python -c "${python_cmd}"
+
+    case "$shopts" in
+        *noglob*) ;;
+        *) set +f;;
+    esac
+
+    unset shopts
+}
